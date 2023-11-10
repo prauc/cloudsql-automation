@@ -1,0 +1,13 @@
+main:
+  params: [args]
+  steps:
+    - stopInstance:
+        call: googleapis.sqladmin.v1.instances.patch
+        args:
+          project: "${args.project}"
+          instance: "${args.instance}"
+          body:
+            settings:
+              activationPolicy: "NEVER"
+    - the_end:
+        return: "SUCCESS"
