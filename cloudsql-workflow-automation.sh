@@ -56,7 +56,7 @@ echo Deploying Cronjobs..
 
 echo Deploying Stop Cronjob
 gcloud scheduler jobs create http "${WORKFLOW_STOP}Cronjob" \
-    --schedule="0 18 * * *" \
+    --schedule="0 18 * * MON-FRI" \
     --uri="https://workflowexecutions.googleapis.com/v1/projects/${PROJECT}/locations/${LOCATION}/workflows/${WORKFLOW_STOP}/executions" \
     --message-body="{\"argument\": \"{\\\"project\\\":\\\"${PROJECT}\\\",\\\"instance\\\":\\\"${INSTANCE}\\\"}\"}" \
     --time-zone="Europe/Berlin" \
@@ -65,7 +65,7 @@ gcloud scheduler jobs create http "${WORKFLOW_STOP}Cronjob" \
 
 echo Deploying Start Cronjob
 gcloud scheduler jobs create http "${WORKFLOW_START}Cronjob" \
-    --schedule="0 8 * * *" \
+    --schedule="0 8 * * MON-FRI" \
     --uri="https://workflowexecutions.googleapis.com/v1/projects/${PROJECT}/locations/${LOCATION}/workflows/${WORKFLOW_START}/executions" \
     --message-body="{\"argument\": \"{\\\"project\\\":\\\"${PROJECT}\\\",\\\"instance\\\":\\\"${INSTANCE}\\\"}\"}" \
     --time-zone="Europe/Berlin" \
