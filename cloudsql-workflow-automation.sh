@@ -16,7 +16,7 @@ echo Ok, GCP Project ID set to: $PROJECT
 
 echo Please enter GCP CloudSQL Instance name:
 read INSTANCE
-echo Ok, GCP Project ID set to: $INSTANCE
+echo Ok, GCP CloudSQL Instance set to: $INSTANCE
 
 echo Creating Service-Account..
 gcloud iam service-accounts create $SERVICEACCOUNT_NAME
